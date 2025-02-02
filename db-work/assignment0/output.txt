@@ -1,0 +1,8 @@
+ line |                       stanza                        
+------+-----------------------------------------------------
+    1 | A wise hard spice wakes.
+    2 | Heat burns slick, fluttered oxen.
+    3 | The petals wake winds.
+      | --from http://peterhoward.org/haikugen/framset1.htm
+(4 rows)
+
