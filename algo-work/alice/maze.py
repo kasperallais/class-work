@@ -19,7 +19,7 @@ def main():
         return
 
     try:
-        # Maze dimentions
+        # Maze dimensions
         R, C = map(int, parts[0].split())
         # Starting cell coordinates
         start_r, start_c = map(int, parts[1].split())
@@ -86,7 +86,7 @@ def main():
     # Vertices:
     #   - Each vertex represents a state (r, c, stride), where:
     #       - (r, c) is the cell location
-    #       - stide is the number of cells Alice will move from that cell
+    #       - stride is the number of cells Alice will move from that cell
     # Edges:
     #   - A directed edge from vertex A to vertex B exists if:
     #       - There is an allowed movement from cell A in one of it's permitted directions
@@ -128,7 +128,7 @@ def main():
                 if new_stride < 1:
                     continue
                 # Add an edge
-                #   - From: (r, c, s) represents leaving cell (r, c) with stide s
+                #   - From: (r, c, s) represents leaving cell (r, c) with stride s
                 #   - To: (nr, nc, new_stride) represents landing on cell (nr, nc) with updated stride
                 #   - Weight: s (the stride length)
                 edge_list.append(((r, c, s), (nr, nc, new_stride), s))
@@ -151,13 +151,12 @@ def main():
     # Among the reached vertices, select those that are at the goal cell coordinates
     goal_candidates = [(state, cost) for state, cost in distances.items()
                        if state[0] == goal_r and state[1] == goal_c]
-    print(goal_candidates)
     # If no state at the goal is reached, then there is no valid path
     if not goal_candidates:
         print("NO PATH")
         return
 
-    # Choose the goal candiate with the smallest total cost
+    # Choose the goal candidate with the smallest total cost
     best_state, best_distance = min(goal_candidates, key=lambda x: x[1])
     best_path = paths[best_state]  
     # Extract only cell coordinates from the path
